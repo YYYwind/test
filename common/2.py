@@ -1,14 +1,16 @@
 from urllib import request,parse
-url = "http://httpbin.org/post"
-headers = {
-    #伪装一个火狐浏览器
-    "User-Agent":'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)',
-    "host":'httpbin.org'
-}
+url = 'http://w-beta-1000.chemanman.com:4901/api/Order/Order/coHandle?btn_type=co_save&co_logid=2804001534862771097&' \
+      'logid=2804001534862867184&gid=320'
 dict = {
-    "name":"Germey"
+    'req': '{"order_num":"18080138","billing_date":"2018-08-21 22:46:13","start_point":"14101","arr_point":"","start_info":{"show_val":"北京市","province":"北京市","city":"","district":"","street":"","adcode":"","poi":""},"arr_info":{"id":0,"province":"","city":"","district":"","street":"测试","adcode":"","poi":"","show_val":"测试","show_p_val":""},"trans_mode":3,"delivery_mode":"self_pick","cor_name":"杨洋","cor_mobile":"17671462076","cor_addr_info":"","cee_name":"接口测试","cee_mobile":"","cee_addr_info":"","goods":[{"name":"","subtotal_price":"","pkg":"","num":"1","weight":"","volume":"","unit_p":"","unit_p_unit":"per_num"}],"total_price":44,"co_freight_f":"36","cashreturn":"","discount":"","co_delivery_f":"","co_pickup_f":"","co_handling_f":"","declared_value":"","co_insurance":"","co_pkg_f":"","co_misc_f":"","pay_mode":"pay_multi","pay_billing":"1","pay_arrival":"2","pay_credit":"3","pay_monthly":"4","pay_receipt":"5","pay_co_delivery":"6","pay_owed":23,"co_delivery":"15","co_delivery_fee":"8","mgr_id":"28040","notice_delivery":"","pickup":"","receipt_cat":"receipt","receipt_n":"0","trsp_mode":"汽运","remark":"","sys_order_num":"18080138","order_tp_id":"def_ot","cor_com":"","cor_phone":"","cor_id_num":"","cor_customer_no":"","cor_industry":"","cor_addr_remark":"","cor_pick_dist":"","cee_com":"","cee_phone":"","cee_id_num":"","cee_customer_no":"","cee_industry":"","cee_addr_remark":"","cee_pick_dist":"","service_type":"site_site","bank_card_num":"123456789845","card_holder":"杨洋","co_delivery_mode":"银行卡","contact_phone":"17671462076","id_card_num":"8812","member_code":"105375","member_code_show":"105375","member_code_diy":"","shipper_phone":"","open_bank":"招商银行","route_time":"","trans_hour":"","std_cost":[{}],"pay_billing_paid":true,"product_line":"","cor_id":0,"cee_id":0,"truck_length":"","truck_type":"","cor_cate":null,"cee_cate":null,"actual_price":44,"rebate":"","co_upstairs_f":"","co_install_f":"","co_pay_adv":"","co_delivery_adv":"","co_trans_f":"","co_in_wh_f":"","co_storage_f":"","co_make_f":"","weight":0,"volume":0,"num":1,"product_key":0,"od_link_id":0,"trans_start_info":{"show_val":"北京市","province":"北京市","city":"","district":"","street":"","adcode":"","poi":""},"trans_pickup_addr":{"show_val":"北京市","province":"北京市","city":"","district":"","street":"","adcode":"","poi":""},"co_dst_type":"","trans_goods":[{"weight":"","volume":"","num":"1","name":"","pkg":"","cat":"","special":""}],"trans_cor_pick_dist":0,"trans_cee_pick_dist":0,"tax":0,"pickup_f":0,"msgTypeList":[],"is_co_check":true}'
 }
-data = bytes(parse.urlencode(dict),encoding="utf8")
-req = request.Request(url=url,data=data,headers=headers,method="POST")
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) ''Chrome/68.0.3440.'
+                  '84 Safari/53''7.36',
+    'Cookie': 'PHPSESSID=1aec04e0591e15108dcc970c2983a279; user_id=28040; group_id=320; company_id=14101; Hm_lvt_c70489245e84d304e1ce7c505680f495=1534661136,1534683837,1534862728; Hm_lpvt_c70489245e84d304e1ce7c505680f495=1534862728; 28040%7C14101%7C320%7ClastHandleTime=1534862863175',
+}
+data = bytes(parse.urlencode(dict), encoding="utf-8")
+print(data)
+req = request.Request(url=url, data=data, headers=headers, method="POST")
 response = request.urlopen(req)
 print(response.read().decode("utf-8"))
