@@ -1,0 +1,7 @@
+import requests
+
+data = {
+    'req': '{"msgTypeList":[],"bill_info":{"opposite_id":"28040","opposite_name":"朝阳","time":"2018-08-22 19:52:15","ori_bill_no":""},"payment_info":{},"operate_data":[{"id":"21038707","number":"18080141","expense":"pay_billing","pay_billing":1,"expense_id":"49062785","direction":true,"amount":1},{"id":"21038707","number":"18080141","expense":"pay_arrival","pay_arrival":2,"expense_id":"49062777","direction":true,"amount":2},{"id":"21038707","number":"18080141","expense":"pay_owed","pay_owed":23,"expense_id":"49062784","direction":true,"amount":23},{"id":"21038707","number":"18080141","expense":"pay_monthly","pay_monthly":4,"expense_id":"49062783","direction":true,"amount":4},{"id":"21038707","number":"18080141","expense":"pay_receipt","pay_receipt":5,"expense_id":"49062782","direction":true,"amount":5},{"id":"21038707","number":"18080141","expense":"pay_credit","pay_credit":3,"expense_id":"49062781","direction":true,"amount":3},{"id":"21038707","number":"18080141","expense":"pay_co_delivery","pay_co_delivery":6,"expense_id":"49062780","direction":true,"amount":6},{"id":"21038707","number":"18080141","expense":"co_delivery_fee","co_delivery_fee":8,"expense_id":"49062779","direction":true,"amount":8},{"id":"21038707","number":"18080141","expense":"co_delivery","co_delivery":15,"expense_id":"49062778","direction":true,"amount":15}],"is_cert":0,"is_submit":0,"is_check":0,"type":"cash"}'
+}
+res = requests.post('http://w-beta-1000.chemanman.com:4901/api/Order/Order/coHandle',data=data,stream=True)
+print(res.request.body)
